@@ -21,6 +21,7 @@ public class Logical {
                          rejected.add(event);
 
         }
+
         System.out.println(initialList.size());
         System.out.println(rejected.size());
         return finalEvent;
