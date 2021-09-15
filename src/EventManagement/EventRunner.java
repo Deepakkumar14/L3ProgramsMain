@@ -4,24 +4,30 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EventRunner {
-    private static Scanner input=new Scanner(System.in);
+    private static Scanner input = new Scanner(System.in);
+
     public static void main(String[] args) {
-runner();
+        runner();
     }
-    public static void runner(){
-        Logical logical=new Logical();
+
+    public static void runner() {
+        Logical logical = new Logical();
         System.out.println("Event Management");
-        ArrayList<String> initialList=new ArrayList<>();
+        ArrayList<String> initialList = new ArrayList<>(20);
         System.out.println("Enter Number of Events");
-        int number= input.nextInt();
+        int number = input.nextInt();
         input.nextLine();
-        for(int i=0;i<number;i++){
-            String str= input.nextLine();
+        for (int i = 0; i < number; i++) {
+            String str = input.nextLine();
             initialList.add(str);
         }
-    logical.getTime(initialList);
+        ArrayList<String> finalList = logical.getTime(initialList);
+        for (int i=0;i<finalList.size();i++) {
+            System.out.println(finalList.get(i));
+        }
     }
 }
+
 
 
 
