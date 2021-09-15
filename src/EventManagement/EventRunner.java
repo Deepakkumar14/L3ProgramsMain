@@ -19,9 +19,7 @@ runner();
             String str= input.nextLine();
             initialList.add(str);
         }
-    //   logical.getTime(initialList);
-int time=Integer.parseInt("60min");
-        System.out.println(time);
+    logical.getTime(initialList);
     }
 }
 
