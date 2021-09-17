@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Logical {
     public static int startTime=540;
     public static  ArrayList<String > finalEvent=new ArrayList<>();
-    public static  ArrayList<String > rejected=new ArrayList<>();
     public static int k=2;
 
     public ArrayList<String> getTime(ArrayList<String> initialList) {
@@ -19,6 +18,9 @@ public class Logical {
                          initialList.remove(i);
                          i=-1;
                     }
+                     if(i==initialList.size()-1){
+                         setEvent("end",time);
+                     }
         }
 
 //        System.out.println(initialList.size());
@@ -55,7 +57,7 @@ public class Logical {
 
 
        public String setEvent(String event, int time){
-        if(time+startTime<=720 || (time+startTime>780 && time+startTime<=1020)){
+        if(!event.equals("end")&&(time+startTime<=720 || (time+startTime>780 && time+startTime<=1020)) ){
            String finalTime = timeFormat(startTime);
            String output=finalTime+"  "+event;
             startTime=time+startTime;
@@ -73,7 +75,7 @@ public class Logical {
                 finalEvent.add(output);
                 return "false";
             }
-            if(startTime>=1005 && startTime<=1020){
+            if(startTime>960 && startTime<=1020){
                 String finalTime = timeFormat(startTime);
                 String output1 = finalTime + "   " + "NetworkEvent";
                 startTime = 540;
@@ -82,7 +84,17 @@ public class Logical {
                 k++;
                 return "false";
             }
+            if(event.equals("end")){
+                if(startTime>=960){
+                    String finalTime = timeFormat(startTime);
+                    String output = finalTime + "   " + "NetworkEvent";
+                    startTime = 540;
+                    finalEvent.add(output);
+                    return output;
+                }
+            }
         }
+
            return "false";
        }
 }

@@ -34,9 +34,9 @@ public class EventRunner {
 //number=18;
 //        Writing Fast Tests Against Enterprise Rails 60min
 //        Overdoing it in Python 45min
-//        Lua for the Masses 30min
 //        Ruby Errors from Mismatched Gem Versions 45min
 //        Common Ruby Errors 45min
+//        Lua for the Masses 30min
 //        Rails for Python Developers lightning
 //        Communicating Over Distance 60min
 //        Accounting-Driven Development 45min
