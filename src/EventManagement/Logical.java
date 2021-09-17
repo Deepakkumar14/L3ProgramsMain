@@ -19,20 +19,10 @@ public class Logical {
                          initialList.remove(i);
                          i=-1;
                     }
-                     else{
-                         if(startTime>960 && startTime<=1020){
-                             String finalTime = timeFormat(startTime);
-                             String output1 = finalTime + "   " + "NetworkEvent";
-                             startTime = 540;
-                             finalEvent.add(output1);
-                             finalEvent.add("Track "+k);
-                             k++;
-                         }
-                     }
         }
 
-        System.out.println(initialList.size());
-        System.out.println(rejected.size());
+//        System.out.println(initialList.size());
+//        System.out.println(rejected.size());
         return finalEvent;
     }
     public int calculateTime(String time){
@@ -72,6 +62,10 @@ public class Logical {
            finalEvent.add(output);
             return output;
         }else {
+            if(startTime>=705 && startTime< 720){
+                startTime =720;
+                return "false";
+            }
             if (startTime == 720) {
                 String finalTime = timeFormat(startTime);
                 String output = finalTime + "   " + "Lunch";
@@ -79,13 +73,14 @@ public class Logical {
                 finalEvent.add(output);
                 return "false";
             }
-            if (startTime == 1020) {
+            if(startTime>=1005 && startTime<=1020){
                 String finalTime = timeFormat(startTime);
-                String output = finalTime + "   " + "NetworkEvent";
+                String output1 = finalTime + "   " + "NetworkEvent";
                 startTime = 540;
-                finalEvent.add(output);
+                finalEvent.add(output1);
                 finalEvent.add("Track "+k);
                 k++;
+                return "false";
             }
         }
            return "false";
